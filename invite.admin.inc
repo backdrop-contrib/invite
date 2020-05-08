@@ -35,6 +35,7 @@ function invite_settings() {
     '#description' => t('Choose the default role that invited users will be added to when they register. For example, <em>authenticated user</em>.'),
     '#required' => TRUE,
   );
+  sdpm($config->get('invite_target_role_default'));
   $form['general']['invite_expiry'] = array(
     '#type' => 'select',
     '#title' => t('Invitation expiry'),
@@ -200,9 +201,6 @@ function invite_settings() {
     '#description' => t('The title of the page where users invite friends.'),
     '#required' => TRUE,
   );
-
-  // Add vertical tabs display if available.
-  $form['#pre_render'][] = 'vertical_tabs_form_pre_render';
 
   return system_settings_form($form);
 }
