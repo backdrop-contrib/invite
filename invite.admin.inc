@@ -35,7 +35,6 @@ function invite_settings() {
     '#description' => t('Choose the default role that invited users will be added to when they register. For example, <em>authenticated user</em>.'),
     '#required' => TRUE,
   );
-  sdpm($config->get('invite_target_role_default'));
   $form['general']['invite_expiry'] = array(
     '#type' => 'select',
     '#title' => t('Invitation expiry'),
@@ -57,6 +56,7 @@ function invite_settings() {
     '#default_value' => $config->get('invite_require_approval'),
     '#description' => t('Accounts that have been created with an invitation will require administrator approval.'),
   );
+  sdpm($config->get('invite_profile_inviter'));
   $form['general']['invite_profile_inviter'] = array(
     '#type' => 'checkbox',
     '#title' => t('Show inviter on user profile'),
