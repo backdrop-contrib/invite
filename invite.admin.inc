@@ -56,7 +56,6 @@ function invite_settings() {
     '#default_value' => $config->get('invite_require_approval'),
     '#description' => t('Accounts that have been created with an invitation will require administrator approval.'),
   );
-  sdpm($config->get('invite_profile_inviter'));
   $form['general']['invite_profile_inviter'] = array(
     '#type' => 'checkbox',
     '#title' => t('Show inviter on user profile'),
