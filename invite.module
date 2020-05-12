@@ -149,8 +149,8 @@ function invite_menu() {
     'file' => 'invite.admin.inc',
   );
   $items['admin/config/people/invite'] = array(
-    'title' => 'Invite',
-    'description' => 'Modify invitation settings.',
+    'title' => 'Invite settings',
+    'description' => 'Configure settings for user invitations.',
     'page callback' => 'backdrop_get_form',
     'page arguments' => array('invite_settings'),
     'access arguments' => array('administer invitations'),
