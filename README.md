@@ -5,18 +5,18 @@ Invitations are important to create network effects and exponential growth of a 
 
 
 Requirements
-------------
+============
 Token module https://github.com/backdrop-contrib/token
 
 
 Installation
-------------
+============
 
-* Add to and enable the module on your Backdrop website per one of two methods
+1. Add to and enable the module on your Backdrop website per one of two methods
 described on https://backdropcms.org/user-guide/modules.
 
 
-* Give some roles permission to send invites on the Permissions page (admin/config/people/permissions). The following permissions can be controlled:
+2. Give some roles permission to send invites on the Permissions page (admin/config/people/permissions). The following permissions can be controlled:
 
    Administer invitations - Allows users to access the administrative overview
      and settings pages, and to see other people's invitations.
@@ -48,10 +48,10 @@ described on https://backdropcms.org/user-guide/modules.
 
 
 Configuration
--------------
+============
 
 General settings
-================
+----------------
 
 * Default target role
   Allows you to specify the role invited users will be added to when they
@@ -66,7 +66,7 @@ General settings
   link.
 
 Role settings (separate sections for each role)
-================
+------------------------------
 
 * Target role
   Allows you to specify an additional role invited users will be added to if
@@ -76,7 +76,7 @@ Role settings (separate sections for each role)
   Allows you to limit the total number of invitations each role can send.
 
 E-mail settings
-================
+---------------
 
 * Subject
   The default subject of the invitation e-mail.
@@ -97,13 +97,13 @@ E-mail settings
   likely be marked as spam.
 
 Invite page customization
-================
+-----------------
 
 * Invite page title
   Allows you to change the title of the invite page and link.
 
 Usage
------
+============
 
 Sent invitations show up in one of three states: accepted, pending, expired, or
 deleted.
@@ -121,13 +121,11 @@ invitations may only be withdrawn if the configuration allows you to.
 
 
 Invite API
-----------
-
+============
 See invite.api.php.
 
 Credits
--------
-
+============
 Initially created and maintained for Drupal by David Hill (tatonca) and Stefan M.
 Kudwien (https://github.com/smk).
 
