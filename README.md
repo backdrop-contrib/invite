@@ -1,29 +1,22 @@
 
--- SUMMARY --
-
-Invitations are important to create network effects and exponential growth of a
-community of interest. This module adds an 'Invite a friend' feature that
-allows your users to send and track invitations to join your site.
-
-For a full description visit the project page:
-  https://github.com/backdrop-contrib/invite
-Bug reports, feature suggestions and latest developments:
-  https://github.com/backdrop-contrib/invite/issues
+Description
+-----------
+Invitations are important to create network effects and exponential growth of a community of interest. This module adds an 'Invite a friend' feature that allows your users to send and track invitations to join your site.
 
 
--- REQUIREMENTS --
+Requirements
+------------
+Token module https://github.com/backdrop-contrib/token
 
-* Token module https://github.com/backdrop-contrib/token
 
+Installation
+------------
 
--- INSTALLATION --
-
-1. Add to and enable the module on your Backdrop website per one of two methods
+* Add to and enable the module on your Backdrop website per one of two methods
 described on https://backdropcms.org/user-guide/modules.
 
 
-2. Give some roles permission to send invites on the Permissions page
-   (admin/config/people/permissions). The following permissions can be controlled:
+* Give some roles permission to send invites on the Permissions page (admin/config/people/permissions). The following permissions can be controlled:
 
    Administer invitations - Allows users to access the administrative overview
      and settings pages, and to see other people's invitations.
@@ -54,9 +47,11 @@ described on https://backdropcms.org/user-guide/modules.
    settings see below.
 
 
--- CONFIGURATION --
+Configuration
+-------------
 
---- General settings ---
+General settings
+================
 
 * Default target role
   Allows you to specify the role invited users will be added to when they
@@ -70,7 +65,8 @@ described on https://backdropcms.org/user-guide/modules.
   Specifies where the users will be redirected when they click the invitation
   link.
 
---- Role settings (separate sections for each role) ---
+Role settings (separate sections for each role)
+================
 
 * Target role
   Allows you to specify an additional role invited users will be added to if
@@ -79,7 +75,8 @@ described on https://backdropcms.org/user-guide/modules.
 * Invitation limit
   Allows you to limit the total number of invitations each role can send.
 
---- E-mail settings ---
+E-mail settings
+================
 
 * Subject
   The default subject of the invitation e-mail.
@@ -99,12 +96,14 @@ described on https://backdropcms.org/user-guide/modules.
   Make sure the domain matches that of your SMTP server, or your e-mails will
   likely be marked as spam.
 
---- Invite page customization ---
+Invite page customization
+================
 
 * Invite page title
   Allows you to change the title of the invite page and link.
 
--- USAGE --
+Usage
+-----
 
 Sent invitations show up in one of three states: accepted, pending, expired, or
 deleted.
@@ -121,11 +120,13 @@ At any time, pending or expired invitations may be withdrawn. Accepted
 invitations may only be withdrawn if the configuration allows you to.
 
 
--- INVITE API --
+Invite API
+----------
 
 See invite.api.php.
 
--- CREDITS --
+Credits
+-------
 
 Initially created and maintained for Drupal by David Hill (tatonca) and Stefan M.
 Kudwien (https://github.com/smk).
