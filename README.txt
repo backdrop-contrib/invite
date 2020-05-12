@@ -6,55 +6,48 @@ community of interest. This module adds an 'Invite a friend' feature that
 allows your users to send and track invitations to join your site.
 
 For a full description visit the project page:
-  http://drupal.org/project/invite
+  https://github.com/backdrop-contrib/invite
 Bug reports, feature suggestions and latest developments:
-  http://drupal.org/project/issues/invite
+  https://github.com/backdrop-contrib/invite/issues
 
 
 -- REQUIREMENTS --
 
-* Token module http://drupal.org/project/token
+* Token module https://github.com/backdrop-contrib/token
 
 
 -- INSTALLATION --
 
-1. Copy the invite module to your modules directory and enable it on the Modules
-   page (admin/modules).
+1. Add to and enable the module on your Backdrop website per one of two methods
+described on https://backdropcms.org/user-guide/modules.
+
 
 2. Give some roles permission to send invites on the Permissions page
-   (admin/people/permissions). The following permissions can be controlled:
+   (admin/config/people/permissions). The following permissions can be controlled:
 
-   administer invitations - Allows users to access the administrative overview
+   Administer invitations - Allows users to access the administrative overview
      and settings pages, and to see other people's invitations.
 
-   send mass invitations - Allows users to send an invitation to multiple
+   Send mass invitations - Allows users to send an invitation to multiple
      recipients (this was formerly a setting known as "limit per turn").
 
-   track invitations - Gives users access to the user overview pages and
+   Track invitations - Gives users access to the user overview pages and
      associated actions (withdraw etc). Useful to hide overviews from anonymous
      users.
 
-   withdraw own invitations - Allows users to withdraw invitations. If an
+   Withdraw own invitations - Allows users to withdraw invitations. If an
      invitation has been withdrawn, it cannot be used to join the site
      and it does not count against the sender's invitation limit.
 
-   withdraw own accepted invitations - This will allow your users to delete
+   Withdraw own accepted invitations - This will allow your users to delete
      accepted invitations. Disable it to prevent users from deleting
      their account to be re-invited. With the help of the Cancel User Accounts
      module it is possible to terminate user accounts by withdrawing an
      invitation.
 
-   view invite statistics (invite_stats module) - Allows users to view invite
-     statistics on their profile pages as well as view the Top inviters/User
-     rank block.
-
-   view own invite statistics (invite_stats module) - Same as above, but limits
-     viewing statistics to the user's own profile.
-
-3. Invite adds a new registration mode called 'New user registration by
-   invitation only' to the User settings page (admin/config/people/accounts),
-   which allows you to maintain a semi-private site. You can enable it if you
-   need it.
+3. Invite adds a new registration mode called 'Invitees only' to the Account
+   settings page (admin/config/people/settings), which allows you to maintain a
+   semi-private site.
 
 4. Configure the module at Configuration > Invite
    (admin/config/people/invite). For an explanation of the configuration
@@ -134,8 +127,8 @@ See invite.api.php.
 
 -- CREDITS --
 
-Original author:
-  David Hill (tatonca)
+Initially created and maintained for Drupal by David Hill (tatonca) and Stefan M.
+Kudwien (https://github.com/smk).
 
-Current maintainer:
-  Stefan M. Kudwien (smk-ka) - http://drupal.org/user/48898
+Ported to Backdrop by Alan Mels (https://github.com/alanmels) of AltaGrade.com -
+a Backdrop specific web, cloud and dedicated hosting provider.
