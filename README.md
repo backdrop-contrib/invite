@@ -1,20 +1,17 @@
 
 Description
------------
+===========
 Invitations are important to create network effects and exponential growth of a community of interest. This module adds an 'Invite a friend' feature that allows your users to send and track invitations to join your site.
-
 
 Requirements
 ============
 Token module https://github.com/backdrop-contrib/token
-
 
 Installation
 ============
 
 1. Add to and enable the module on your Backdrop website per one of two methods
 described on https://backdropcms.org/user-guide/modules.
-
 
 2. Give some roles permission to send invites on the Permissions page (admin/config/people/permissions). The following permissions can be controlled:
 
