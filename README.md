@@ -1,7 +1,7 @@
 
 Description
 ===========
-Invitations are important to create network effects and exponential growth of a community of interest. This module adds an 'Invite a friend' feature that allows your users to send and track invitations to join your site.
+Invite is an invitation system that lets you and your Backdrop site members invite more people to join the site. Invitations are important to encourage expansion of your network and to provide an exponential growth of community interest. This module provides an “Invite a Friend” feature that allows your users to send and track invitations.
 
 Requirements
 ============
