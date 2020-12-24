@@ -10,8 +10,7 @@ Token module https://github.com/backdrop-contrib/token
 Installation
 ============
 
-1. Add to and enable the module on your Backdrop website per one of two methods
-described on https://backdropcms.org/user-guide/modules.
+1. Add to and enable the module on your Backdrop website per https://backdropcms.org/user-guide/modules.
 
 2. Give some roles permission to send invites on the Permissions page (admin/config/people/permissions). The following permissions can be controlled:
 
@@ -121,10 +120,28 @@ Invite API
 ============
 See invite.api.php.
 
-Credits
+Issues
 ============
-Initially created and maintained for Drupal by David Hill (tatonca) and Stefan M.
-Kudwien (https://github.com/smk).
 
-Ported to Backdrop by Alan Mels (https://github.com/alanmels) of AltaGrade.com -
-a Backdrop specific web, cloud and dedicated hosting provider.
+Bugs and Feature requests should be reported in the Issue Queue:
+https://github.com/backdrop-contrib/invite/issues.
+
+Current Maintainers
+===================
+
+- [Alan Mels](https://github.com/alanmels).
+- Seeking additional maintainers.
+
+Credits
+=======
+
+- Ported to Backdrop CMS by [Alan Mels](https://github.com/alanmels).
+- Originally written for Drupal by David Hill (tatonca) and Stefan M.
+Kudwien (https://github.com/smk).
+- Sponsored by [AltaGrade](https://www.altagrade.com)
+
+License
+=======
+
+This project is GPL v2 software. 
+See the LICENSE.txt file in this directory for complete text.
