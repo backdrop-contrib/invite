@@ -677,19 +677,15 @@ function invite_user_insert(&$edit, $account, $category) {
 /**
  * Implements hook_user_presave().
  */
-function invite_user_presave(&$edit, $account, $category) {
+function invite_user_presave($account) {
   if ($account->is_new && !empty($account->mail)) {
     $invite = invite_find_invite($account->mail);
 
     if ($invite) {
-      $roles = invite_target_roles($invite, $edit);
-
+      $roles = invite_target_roles($invite, $account);
       if ($roles) {
-        if (!isset($edit['roles']) || !is_array($edit['roles'])) {
-          $edit['roles'] = array();
-        }
         foreach ($roles as $role) {
-          $edit['roles'][$role] = $role;
+          $account->roles[] = $role;
         }
       }
     }
@@ -777,16 +773,17 @@ function invite_target_roles($invite, $account) {
 
   // Add roles of inviter.
   if ($invite->inviter) {
-    $roles = array_intersect($invite->inviter->roles, user_roles(TRUE, 'send invitations'));
+    $user_roles = user_roles(TRUE, 'send invitations');
+    $user_roles = array_map('strtolower', $user_roles);
+    $roles = array_intersect($invite->inviter->roles, $user_roles);
   }
 
   // Add a dummy entry to retrieve the default target role setting.
   $roles['default'] = 'default';
-
   // Map to configured target roles.
   foreach ($roles as $rid => $role) {
-    $target = config_get('invite.settings', 'invite_target_role_' . $rid);
-    if ($target != BACKDROP_AUTHENTICATED_RID) {
+    $target = config_get('invite.settings', 'invite_target_role_' . $role);
+    if ($target != 'authenticated') {
       $targets[$target] = $target;
     }
   }
