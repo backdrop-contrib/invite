@@ -3,10 +3,6 @@ Description
 ===========
 Invite is an invitation system that lets you and your Backdrop site members invite more people to join the site. Invitations are important to encourage expansion of your network and to provide an exponential growth of community interest. This module provides an “Invite a Friend” feature that allows your users to send and track invitations.
 
-Requirements
-============
-Token module https://github.com/backdrop-contrib/token
-
 Installation
 ============
 
@@ -41,7 +37,6 @@ Installation
 4. Configure the module at Configuration > Invite
    (admin/config/people/invite). For an explanation of the configuration
    settings see below.
-
 
 Configuration
 ============
@@ -143,5 +138,5 @@ Kudwien (https://github.com/smk).
 License
 =======
 
-This project is GPL v2 software. 
+This project is GPL v2 software.
 See the LICENSE.txt file in this directory for complete text.
