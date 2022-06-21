@@ -654,7 +654,7 @@ function invite_send($invite, $send = TRUE) {
 /**
  * Implements hook_user_insert().
  */
-function invite_user_insert(&$edit, $account, $category) {
+function invite_user_insert($account) {
   $invite = invite_find_invite($account->mail);
 
   if ($invite) {
@@ -678,7 +678,7 @@ function invite_user_insert(&$edit, $account, $category) {
  * Implements hook_user_presave().
  */
 function invite_user_presave($account) {
-  if ($account->is_new && !empty($account->mail)) {
+  if (isset($account->is_new) && !empty($account->mail)) {
     $invite = invite_find_invite($account->mail);
 
     if ($invite) {
