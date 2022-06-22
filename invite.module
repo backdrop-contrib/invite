@@ -71,16 +71,6 @@ function invite_help($path, $arg) {
 }
 
 /**
- * Display module help.
- */
-function _invite_module_help() {
-  $file = backdrop_get_path('module', 'invite') . '/README.txt';
-  if (file_exists($file)) {
-    return _filter_autop(check_plain(file_get_contents($file)));
-  }
-}
-
-/**
  * Implements hook_theme().
  */
 function invite_theme() {
@@ -421,9 +411,13 @@ function invite_form_alter(&$form, &$form_state, $form_id) {
         }
 
         // Enable/disable account depending on whether approval is required for invitees.
-        #$form['account']['status']['#default_value'] = !config_get('invite.settings', 'invite_require_approval');
+        if (config_get('invite.settings', 'invite_require_approval') == TRUE) {
+          $form['account_settings']['status']['#default_value'] = FALSE;
+        }
+        else {
+          $form['account_settings']['status']['#default_value'] = TRUE;
+        }
       }
-      sdpm($form);
       break;
 
     case 'user_login_block':
@@ -435,6 +429,7 @@ function invite_form_alter(&$form, &$form_state, $form_id) {
       }
       break;
   }
+
 }
 
 /*
