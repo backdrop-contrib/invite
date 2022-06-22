@@ -1,3 +1,8 @@
+Invite dev, 2022-06-22
+----------------------------
+- Change a link referencing Drupal module #5 (https://github.com/backdrop-contrib/invite/issues/5)
+- Empty From field #6 (https://github.com/backdrop-contrib/invite/issues/6)
+
 Invite 1.x-1.0.1, 2022-06-21
 ----------------------------
 -  Maintainer info missing from README #1 (https://github.com/backdrop-contrib/invite/issues/1)
