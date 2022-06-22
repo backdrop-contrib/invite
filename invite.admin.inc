@@ -48,7 +48,7 @@ function invite_settings() {
     '#type' => 'textfield',
     '#title' => t('Path to registration page'),
     '#default_value' => $config->get('invite_registration_path'),
-    '#description' => t('Path to the registration page for invited users. Useful when using the <em>Assign from Path</em> option of <a href="@url">Auto Assign Roles</a> module.', array('@url' => 'http://drupal.org/project/autoassignrole')),
+    '#description' => t('Path to the registration page for invited users. Useful when using the <em>Assign from Path</em> option of <a href="@url">Auto Assign Roles</a> module.', array('@url' => 'https://backdropcms.org/project/autoassignrole')),
   );
   $form['general']['invite_require_approval'] = array(
     '#type' => 'checkbox',
