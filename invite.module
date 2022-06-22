@@ -362,7 +362,7 @@ function invite_notify($uid) {
   foreach ($result as $row) {
     $account = user_load_multiple(array($row->invitee), array('status' => 1));
     if (!empty($account[$row->invitee])) {
-      backdrop_set_message(t('!user (@email) has joined @site-name!', array('!user' => theme('username', array('account' => $account[$row->invitee])), '@email' => $account[$row->invitee]->mail, '@site-name' => config_get('system.performance', 'site_name'))));
+      backdrop_set_message(t('!user (@email) has joined @site-name!', array('!user' => theme('username', array('account' => $account[$row->invitee])), '@email' => $account[$row->invitee]->mail, '@site-name' => config_get('system.core', 'site_name'))));
       db_query("DELETE FROM {invite_notifications} WHERE uid = :uid AND invitee = :invitee", array(':uid' => $uid, ':invitee' => $row->invitee));
     }
   }
@@ -1032,7 +1032,7 @@ function invite_page_form($remaining_invites, $edit = array()) {
     $from = $user->mail;
   }
   if (empty($from)) {
-    $from = config_get('system.performance', 'site_mail');
+    $from = config_get('system.core', 'site_mail');
   }
 
   $form['from'] = array(
@@ -1166,7 +1166,7 @@ function invite_block_form($remaining_invites) {
   $form['#action'] = url('invite');
 
   $form['invite'] = array(
-    '#markup' => t('Recommend @site-name to:', array('@site-name' => config_get('system.performance', 'site_name'))),
+    '#markup' => t('Recommend @site-name to:', array('@site-name' => config_get('system.core', 'site_name'))),
   );
   $description = '';
   if ($remaining_invites != INVITE_UNLIMITED) {

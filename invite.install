@@ -129,7 +129,7 @@ function invite_uninstall() {
  */
 function invite_disable() {
   if (invite_user_registration_by_invite_only()) {
-    config_set('system.performance', 'user_register', 1);
+    config_set('system.core', 'user_register', 1);
     backdrop_set_message(t('User registration option reset to %no_approval.', array('%no_approval' => t('Visitors can create accounts and no administrator approval is required.'))));
   }
 }
