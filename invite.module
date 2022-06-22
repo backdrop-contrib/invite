@@ -278,7 +278,7 @@ function invite_menu_alter(&$items) {
  * Determine if user registration mode is set to invite only.
  */
 function invite_user_registration_by_invite_only() {
-  return (config_get('system.performance', 'user_register') == USER_REGISTER_INVITATION_ONLY);
+  return (config_get('system.core', 'user_register') == USER_REGISTER_INVITATION_ONLY);
 }
 
 /**
@@ -421,8 +421,9 @@ function invite_form_alter(&$form, &$form_state, $form_id) {
         }
 
         // Enable/disable account depending on whether approval is required for invitees.
-        $form['account']['status']['#default_value'] = !config_get('invite.settings', 'invite_require_approval');
+        #$form['account']['status']['#default_value'] = !config_get('invite.settings', 'invite_require_approval');
       }
+      sdpm($form);
       break;
 
     case 'user_login_block':
@@ -783,13 +784,12 @@ function invite_target_roles($invite, $account) {
   // Map to configured target roles.
   foreach ($roles as $rid => $role) {
     $target = config_get('invite.settings', 'invite_target_role_' . $role);
-    if ($target != 'authenticated') {
+    if ($role != 'authenticated') {
       $targets[$target] = $target;
     }
   }
 
   invite_invoke_all('invite_target_roles', $targets, $invite, $account);
-
   return $targets;
 }
 
