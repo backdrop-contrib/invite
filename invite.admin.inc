@@ -10,7 +10,7 @@
  */
 function invite_settings() {
   $config = config('invite.settings');
-  $permissions_url = url('admin/people/permissions', array('query' => backdrop_get_destination(), 'fragment' => 'module-invite'));
+  $permissions_url = url('admin/config/people/permissions', array('query' => backdrop_get_destination(), 'fragment' => 'module-invite'));
 
   $roles = user_roles(FALSE, 'send invitations');
   if (count($roles) == 0) {
