@@ -12,19 +12,18 @@
  *   Which invites to list: accepted, pending, or expired.
  */
 function invite_user_overview($page, $account) {
-
   switch ($page) {
     case 'accepted':
-      return views_embed_view('invite', 'block_1');
+      $result = views_embed_view('invite', 'block_1');
       break;
     case 'pending':
-      return views_embed_view('invite', 'block_2');
+      $result = views_embed_view('invite', 'block_2');
       break;
     case 'expired':
-      return views_embed_view('invite', 'block_3');
+      $result = views_embed_view('invite', 'block_3');
       break;
   }
-
+  return $result;
 }
 
 /**

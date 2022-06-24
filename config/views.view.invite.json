@@ -641,7 +641,21 @@
                     }
                 },
                 "css_class": "invite-user-overview",
-                "header": []
+                "header": [],
+                "empty": {
+                    "area_text_custom": {
+                        "id": "area_text_custom",
+                        "table": "views",
+                        "field": "area_text_custom",
+                        "relationship": "none",
+                        "group_type": "group",
+                        "ui_name": "",
+                        "label": "",
+                        "empty": true,
+                        "content": "No invitations available.",
+                        "tokenize": 0
+                    }
+                }
             }
         },
         "block_1": {
