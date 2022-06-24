@@ -999,7 +999,7 @@ function invite_get_role_limit($account) {
 
   $role_limit = 0;
   foreach (user_roles(FALSE, 'send invitations') as $rid => $role) {
-    if (array_key_exists($rid, $account->roles)) {
+    if (in_array($rid, $account->roles)) {
       $role_max = config_get('invite.settings', 'invite_maxnum_' . $rid);
       if ($role_max == INVITE_UNLIMITED) {
         return INVITE_UNLIMITED;

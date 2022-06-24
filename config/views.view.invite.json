@@ -567,8 +567,7 @@
                     "columns": {
                         "email": "email",
                         "invite_status": "invite_status",
-                        "invite_withdraw_link": "invite_withdraw_link",
-                        "invite_accept_link": "invite_withdraw_link"
+                        "invite_withdraw_link": "invite_withdraw_link"
                     },
                     "info": {
                         "email": {
@@ -582,11 +581,6 @@
                             "empty_column": 0
                         },
                         "invite_withdraw_link": {
-                            "align": "",
-                            "separator": " | ",
-                            "empty_column": 0
-                        },
-                        "invite_accept_link": {
                             "align": "",
                             "separator": "",
                             "empty_column": 0
@@ -1092,7 +1086,11 @@
                     "fields": false,
                     "filters": false,
                     "filter_groups": false,
-                    "header": false
+                    "header": false,
+                    "style_plugin": false,
+                    "style_options": false,
+                    "row_plugin": false,
+                    "row_options": false
                 },
                 "filters": {
                     "invite_status": {
@@ -1158,7 +1156,50 @@
                         "content": "<div id=\"invite-reg-link-container\" class=\"messages\">\r\n      <a href=\"\" id=\"invite-reg-link-close\">Hide</a>\r\n      <div id=\"invite-reg-title\"></div>\r\n      <div id=\"invite-reg-link\"></div>\r\n    </div>",
                         "tokenize": 0
                     }
-                }
+                },
+                "style_plugin": "table",
+                "style_options": {
+                    "grouping": [],
+                    "row_class": "",
+                    "default_row_class": 1,
+                    "row_class_special": 1,
+                    "override": 1,
+                    "sticky": 0,
+                    "caption": "",
+                    "summary": "",
+                    "columns": {
+                        "email": "email",
+                        "invite_status": "invite_status",
+                        "invite_withdraw_link": "invite_withdraw_link",
+                        "invite_accept_link": "invite_withdraw_link"
+                    },
+                    "info": {
+                        "email": {
+                            "align": "",
+                            "separator": "",
+                            "empty_column": 0
+                        },
+                        "invite_status": {
+                            "align": "",
+                            "separator": "",
+                            "empty_column": 0
+                        },
+                        "invite_withdraw_link": {
+                            "align": "",
+                            "separator": " | ",
+                            "empty_column": 0
+                        },
+                        "invite_accept_link": {
+                            "align": "",
+                            "separator": "",
+                            "empty_column": 0
+                        }
+                    },
+                    "default": "-1",
+                    "empty_table": 0
+                },
+                "row_plugin": "fields",
+                "row_options": []
             }
         },
         "block_3": {
