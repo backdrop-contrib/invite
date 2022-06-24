@@ -12,92 +12,19 @@
  *   Which invites to list: accepted, pending, or expired.
  */
 function invite_user_overview($page, $account) {
-  global $user;
-
-  backdrop_add_css(backdrop_get_path('module', 'invite') . '/css/invite.css');
-  backdrop_add_js(backdrop_get_path('module', 'invite') . '/js/invite.js');
-
-  $rows = array();
-  $profile_access = user_access('access user profiles');
-  $allow_delete = user_access('withdraw own invitations');
-  $allow_accepted_delete = user_access('withdraw own accepted invitations');
-
-  $query = db_select('invite', 'i')
-    ->fields('i')
-    ->extend('PagerDefault')
-    ->condition('i.uid', $account->uid)
-    ->condition('canceled', 0);
 
   switch ($page) {
     case 'accepted':
-      // @TODO: I believe that if default is at the top it will always be
-      // defaulted to and the other cases will never be hit.
-    default:
-      $query->leftJoin('users', 'u', 'u.uid = i.invitee AND u.uid <> 0');
-      $query->fields('u', array('uid', 'status'));
-      $query->condition('i.joined', 0, '<>');
-      $query->orderBy('u.uid', 'DESC');
-      //$sql = "SELECT i.*, u.uid AS account FROM {invite} i LEFT JOIN {users} u ON u.uid = i.invitee AND u.uid <> 0 WHERE i.uid = %d AND i.joined <> 0 AND canceled = 0 ORDER BY u.uid DESC";
+      return views_embed_view('invite', 'block_1');
       break;
     case 'pending':
-      $query->condition('i.joined', 0);
-      $query->condition('i.expiry', REQUEST_TIME, '>=');
-      $query->orderBy('i.expiry', 'DESC');
-      //$sql = "SELECT * FROM {invite} WHERE uid = %d AND joined = 0 AND canceled = 0 AND expiry >= %d ORDER BY expiry DESC";
+      return views_embed_view('invite', 'block_2');
       break;
     case 'expired':
-      $query->condition('i.joined', 0);
-      $query->condition('i.expiry', REQUEST_TIME, '<');
-      $query->orderBy('i.expiry', 'DESC');
-      //$sql = "SELECT * FROM {invite} WHERE uid = %d AND joined = 0 AND canceled = 0 AND expiry < %d ORDER BY expiry DESC";
+      return views_embed_view('invite', 'block_3');
       break;
   }
 
-  //$result = pager_query($sql, 50, 0, NULL, $user->uid, REQUEST_TIME);
-  $result = $query->execute()->fetchAll();
-
-  foreach ($result as $invite) {
-    $row = array();
-    switch ($page) {
-      case 'accepted':
-      default:
-        $account_exists = !is_null($invite->uid);
-
-        if ($profile_access && $account_exists && $invite->status > 0) {
-          $row[] = l($invite->email, 'user/' . $invite->invitee, array('title' => t('View user profile.')));
-        }
-        else {
-          $row[] = check_plain($invite->email);
-        }
-        $row[] = $account_exists ? t('Accepted') : t('Deleted');
-        $row[] = $allow_accepted_delete ? l(t('withdraw'), "invite/withdraw/$invite->reg_code", array('query' => backdrop_get_destination())) : '';
-        break;
-
-      case 'pending':
-      case 'expired':
-        $expired = ($invite->expiry < REQUEST_TIME);
-
-        $row[] = check_plain($invite->email);
-        $row[] = $expired ? t('Expired') : t('Pending');
-
-        $operations = array();
-        if ($allow_delete) {
-          $operations[] = l(t('withdraw'), "invite/withdraw/$invite->reg_code", array('query' => backdrop_get_destination()));
-        }
-        if ($expired && $account->uid == $user->uid) {
-          $operations[] = l(t('resend'), "invite/resend/$invite->reg_code");
-        }
-        if ($page ==  'pending') {
-          $operations[] = l(t('show link'), 'invite/accept/' . $invite->reg_code, array('attributes' => array('class' => array('invite-reg-link'), 'title' => t('Registration link for @email', array('@email' => $invite->email))), 'absolute' => TRUE));
-        }
-
-        $row[] = implode(' | ', $operations);
-        break;
-    }
-    $rows[] = $row;
-  }
-
-  return theme('invite_user_overview', array('items' => $rows, 'page' => $page));
 }
 
 /**
