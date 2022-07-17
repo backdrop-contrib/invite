@@ -1731,7 +1731,7 @@ function invite_form_user_profile_form_alter(&$form, &$form_state) {
     $form['inviter'] = array(
       '#type' => 'textfield',
       '#size' => 120,
-      '#weight' => 100,
+      '#weight' => 10,
       '#title' => t('Inviter'),
       '#default_value' => $default_value,
       '#description' => t('The username of the inviter. You can type the name or email to search.'),
